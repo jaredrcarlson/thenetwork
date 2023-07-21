@@ -1,7 +1,5 @@
 <template>
-    <div>
-      <p>{{ profile.name }}</p>
-    </div>
+    <ProfileDetails />
     <PostCardList />
 </template>
 
@@ -13,6 +11,7 @@ import { useRoute } from 'vue-router';
 import Pop from '../utils/Pop.js';
 import { profilesService } from '../services/ProfilesService.js';
 import PostCardList from '../components/PostCardList.vue';
+import ProfileDetails from '../components/ProfileDetails.vue';
 
 export default {
   setup(){
@@ -33,7 +32,7 @@ export default {
       profile: computed(() => AppState.activeProfile)
     }
   },
-  components: { PostCardList }
+  components: { ProfileDetails, PostCardList }
 }
 </script>
 
