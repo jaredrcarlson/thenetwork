@@ -1,4 +1,4 @@
-export class Account {
+export class Profile {
   constructor(data) {
     this.id = data.id
     this.subs = data.subs
@@ -12,5 +12,7 @@ export class Account {
     this.resume = data.resume
     this.class = data.class
     this.graduated = data.graduated
+    this.createdAt = data.createdAt
+    this.updatedAt = data.updatedAt
   }
 }
