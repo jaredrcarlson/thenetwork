@@ -2,7 +2,9 @@
   <div class="card">
     <div class="card-header d-flex align-items-center justify-content-between">
       <div class="d-flex align-items-center">
-        <img class="creator-img" :src="post.creator.picture" :alt="post.creator.name" :title="post.creator.name">
+        <router-link :to="{name: 'Profile', params: {profileId: post.creator.id}}">
+          <img class="creator-img" :src="post.creator.picture" :alt="post.creator.name" :title="post.creator.name">
+        </router-link>
         <div class="ms-5 d-flex-column">
           <h4 class="card-title">{{ post.creator.name }}</h4>
           <h5 class="card-subtitle text-muted">{{ post.createdAt.toLocaleDateString() }}</h5>

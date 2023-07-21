@@ -10,6 +10,13 @@ class PostsService {
     AppState.postsTotalPages = res.data.totalPages
     AppState.posts = res.data.posts.map(data => new Post(data))
   }
+
+  async getPostsByProfileId(profileId) {
+    const res = await api.get(`api/profiles/${profileId}/posts`)
+    AppState.postsCurrentPage = res.data.page
+    AppState.postsTotalPages = res.data.totalPages
+    AppState.posts = res.data.posts.map(data => new Post(data))
+  }
 }
 
 export const postsService = new PostsService()

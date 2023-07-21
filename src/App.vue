@@ -10,16 +10,14 @@
   </header>
   <main>
       <div class="container px-5">
-        <div class="row gx-5">
-          <div v-if="appState.account.id" class="col-2">
-            <div class="border border-danger">
-              Profile
+        <div class="row gx-3">
+          <div class="col-3">
+            <div class="">
+              {{ account.name }}
             </div>
           </div>
-          <div class="col-8">
-            <div class="border border-info">
+          <div class="col-7">
               <router-view />
-            </div>
           </div>
           <div class="col-2">
             <div class="">
@@ -57,6 +55,7 @@ export default {
 
     return {
       appState: computed(() => AppState),
+      account: computed(() => AppState.account),
       ads: computed(() => AppState.ads)
     }
   },
