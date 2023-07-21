@@ -1,8 +1,5 @@
 <template>
   <header>
-    <!-- <Navbar /> -->
-  </header>
-  <main>
     <div class="container-fluid">
       <div class="row mb-3">
         <div class="col-12 bg-dark">
@@ -10,6 +7,9 @@
         </div>
       </div>
     </div>
+    <!-- <Navbar /> -->
+  </header>
+  <main>
       <div class="container px-5">
         <div class="row gx-5">
           <div class="col-2">
@@ -21,25 +21,17 @@
             <div class="border border-info">
               Content
               <router-view />
-
             </div>
-  
           </div>
           <div class="col-2">
             <div class="border border-dark">
               Ads
-
             </div>
           </div>
         </div>
-
       </div>
-
-
   </main>
-   <footer>
-    <!-- Made with 💖 by CodeWorks -->
-  </footer>
+  <footer></footer>
 </template>
 
 <script>
