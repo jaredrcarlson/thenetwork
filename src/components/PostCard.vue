@@ -1,5 +1,5 @@
 <template>
-  <div class="card">
+  <div class="card elevation-3">
     <div class="card-header d-flex align-items-center justify-content-between">
       <div class="d-flex align-items-center">
         <router-link :to="{name: 'Profile', params: {profileId: post.creator.id}}">

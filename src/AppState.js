@@ -13,7 +13,7 @@ export const AppState = reactive({
 
   /** @type {import('./models/Post.js').Post[]} */
   posts: [],
-  postsCurrentPage: null,
+  postsCurrentPage: 1,
   postsTotalPages: null,
 
   /** @type {import('./models/Profile.js').Profile | null} */

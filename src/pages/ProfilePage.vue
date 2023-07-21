@@ -1,10 +1,8 @@
 <template>
-  <div v-if="profile">
-    <p>{{ profile.name }}</p>
-  </div>
-  <div v-for="post in posts" :key="post.id" class="mb-3">
-    <PostCard :post="post" />
-  </div>
+    <div>
+      <p>{{ profile.name }}</p>
+    </div>
+    <PostCardList />
 </template>
 
 
@@ -14,8 +12,7 @@ import { AppState } from '../AppState.js';
 import { useRoute } from 'vue-router';
 import Pop from '../utils/Pop.js';
 import { profilesService } from '../services/ProfilesService.js';
-import { postsService } from '../services/PostsService.js';
-import PostCard from '../components/PostCard.vue';
+import PostCardList from '../components/PostCardList.vue';
 
 export default {
   setup(){
@@ -27,25 +24,16 @@ export default {
         Pop.error(error.message)
       }
     }
-    async function getPosts() {
-      try {
-        await postsService.getPostsByProfileId(route.params.profileId)
-      } catch (error) {
-        Pop.error(error.message)
-      }
-    }
 
     onMounted(() => {
       getProfile()
-      getPosts()
     })
 
     return {
-      profile: computed(() => AppState.activeProfile),
-      posts: computed(() => AppState.posts)
+      profile: computed(() => AppState.activeProfile)
     }
   },
-  components: { PostCard }
+  components: { PostCardList }
 }
 </script>
 
