@@ -16,6 +16,17 @@ class PostsService {
     AppState.posts = res.data.posts.map(data => new Post(data))
   }
 
+  async createPost() {
+    const res = await api.post('api/posts', AppState.newPost)
+    AppState.posts.push(new Post(res.data))
+  }
+
+  async deletePost(postId) {
+    await api.delete(`api/posts/${postId}`)
+    const postIndex = AppState.posts.findIndex(post => post.id == postId)
+    AppState.posts.splice(postIndex, 1)
+  }
+
   async toggleLike(postId) {
     const res = await api.post(`api/posts/${postId}/like`)
     const updatedPost = new Post(res.data)

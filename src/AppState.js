@@ -12,11 +12,13 @@ export const AppState = reactive({
   /** @type {import('./models/Ad.js').Ad[]} */
   ads: [],
 
-
   /** @type {import('./models/Post.js').Post[]} */
   posts: [],
   postsCurrentPage: 1,
   postsTotalPages: null,
+
+  /** @type {import('./models/Post.js').Post} */
+  newPost: {},
 
   /** @type {import('./models/Profile.js').Profile | null} */
   activeProfile: null,

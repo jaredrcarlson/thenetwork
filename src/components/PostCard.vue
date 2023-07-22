@@ -28,7 +28,7 @@
     <div class="card-footer">
       <div class="d-flex align-items-center justify-content-between">
         <div>
-          <button v-show="post.creatorId == account.id" class="btn btn-danger">DELETE</button>
+          <button v-show="post.creatorId == account.id" @click="deletePost" class="btn btn-danger">DELETE</button>
         </div>
         <div class="d-flex align-items-center">
           <div v-if="account.id" @click="toggleLike" class="fs-3">
@@ -67,6 +67,14 @@ export default {
       toggleLike: async() => {
         try {
           await postsService.toggleLike(props.post.id)
+        } catch (error) {
+          Pop.error(error.message)
+        }
+      },
+      deletePost: async() => {
+        try {
+          await postsService.deletePost(props.post.id)
+          Pop.success()
         } catch (error) {
           Pop.error(error.message)
         }

@@ -7,6 +7,9 @@
         Vue 3 Starter
       </h1>
     </div> -->
+    <div v-if="account.id" class="mb-3">
+      <PostForm />
+    </div>
 
     <PostCardList />
     
@@ -14,21 +17,21 @@
 </template>
 
 <script>
-import { useRoute } from 'vue-router';
 import PostCardList from '../components/PostCardList.vue';
-import { onMounted } from 'vue';
+import { computed, onMounted } from 'vue';
+import PostForm from '../components/PostForm.vue';
+import { AppState } from '../AppState.js';
 
 export default {
   setup() {
-    const route = useRoute()
-
     onMounted(async() => {
-      
     })
 
-    return {}
+    return {
+      account: computed(() => AppState.account)
+    }
   },
-  components: { PostCardList }
+  components: { PostForm, PostCardList }
 }
 </script>
 
