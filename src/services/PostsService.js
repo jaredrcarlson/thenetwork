@@ -16,6 +16,13 @@ class PostsService {
     AppState.posts = res.data.posts.map(data => new Post(data))
   }
 
+  async toggleLike(postId) {
+    const res = await api.post(`api/posts/${postId}/like`)
+    const updatedPost = new Post(res.data)
+    const postIndex = AppState.posts.findIndex(post => post.id == postId)
+    AppState.posts.splice(postIndex, 1, updatedPost)
+  }
+
   resetPostsPages() {
     AppState.postsCurrentPage = 1
     AppState.postsTotalPages = null
