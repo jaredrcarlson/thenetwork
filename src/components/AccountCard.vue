@@ -4,7 +4,6 @@
         <div class="d-flex-column">
 
           <div class="mb-2 text-center">
-            <!-- <img class="account-img" :src="account.picture" :alt="account.name" :title="account.name"> -->
             <Login />
           </div>
           <div v-if="account.id" class="mb-3">
@@ -27,10 +26,6 @@
             <p>{{ account.resume }}</p>
           </div>
 
-          <!-- <div v-if="account.id" class="d-flex justify-content-center">
-            <button class="btn btn-sm btn-primary">EDIT</button>
-          </div> -->
-          
         </div>
       </div>
     </div>
@@ -55,14 +50,6 @@ export default {
 
 
 <style lang="scss" scoped>
-.account-img {
-  height: 10vh;
-  width: 10vh;
-  border-radius: 50%;
-  object-fit: cover;
-  object-position: center;
-}
-
 p {
   margin: 0;
 }

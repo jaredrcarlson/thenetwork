@@ -51,8 +51,8 @@ export default {
 
 <style lang="scss" scoped>
 .account-img {
-  height: 10vh;
-  width: 10vh;
+  height: 16vh;
+  width: 16vh;
   border-radius: 50%;
   object-fit: cover;
   object-position: center;
