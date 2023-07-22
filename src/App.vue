@@ -12,17 +12,15 @@
       <div class="container px-5">
         <div class="row gx-3">
           <div class="col-3">
-            <div class="">
-              {{ account.name }}
-            </div>
+              <AccountCard />
           </div>
           <div class="col-7">
               <router-view />
           </div>
           <div class="col-2">
-            <div class="">
+            <div>
               <div v-for="ad in ads" :key="ad">
-                <img class="img-fluid mb-3" :src="ad.tall" :alt="ad.title" :title="ad.title">
+                <img class="img-fluid mb-3 elevation-3" :src="ad.tall" :alt="ad.title" :title="ad.title">
               </div>
             </div>
           </div>
@@ -33,11 +31,12 @@
 </template>
 
 <script>
-import { computed, onMounted } from 'vue'
-import { AppState } from './AppState'
-import { adsService } from './services/AdsService.js'
-import Pop from './utils/Pop.js'
-import Navbar from './components/Navbar.vue'
+import { computed, onMounted } from 'vue';
+import { AppState } from './AppState';
+import { adsService } from './services/AdsService.js';
+import Pop from './utils/Pop.js';
+import Navbar from './components/Navbar.vue';
+import AccountCard from './components/AccountCard.vue';
 
 export default {
   setup() {
@@ -54,13 +53,11 @@ export default {
     })
 
     return {
-      appState: computed(() => AppState),
-      account: computed(() => AppState.account),
       ads: computed(() => AppState.ads)
     }
   },
   components: {
-    Navbar
+    Navbar, AccountCard
   }
 }
 </script>

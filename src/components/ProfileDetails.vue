@@ -12,8 +12,8 @@
                 <img class="profile-img" :src="profile.picture" :alt="profile.name" :title="profile.name">
               </div>
               <div>
-                <h4 class="card-title">{{ profile.name }}</h4>
-                <h6 class="card-subtitle text-muted">{{ profile.class }}</h6>
+                <h4 class="my-1 card-title">{{ profile.name }}</h4>
+                <h6 class="ms-1 card-subtitle text-muted">{{ profile.class }}</h6>
               </div>
             </div>
 
@@ -37,16 +37,17 @@
 
           </div>
           
-          <div class="mb-3 mx-2">
-            <em class="card-text">{{ profile.bio }}</em>
+          <div class="card-text mb-3 mx-2">
+            <em class="">{{ profile.bio }}</em>
           </div>
           
-          <div class="d-flex justify-content-end">
+          <div v-if="profile.id == account.id" class="d-flex justify-content-end">
             <button class="btn btn-info">Edit</button>
           </div>
 
         </div>
       </div>
+      
     </div>
   </div>
 </template>
@@ -59,7 +60,8 @@ import { AppState } from '../AppState.js';
 export default {
   setup(){
     return {
-      profile: computed(() => AppState.activeProfile)
+      profile: computed(() => AppState.activeProfile),
+      account: computed(() => AppState.account)
     }
   }
 }
