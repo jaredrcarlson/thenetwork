@@ -95,7 +95,7 @@ export default {
   setup() {
     
     onMounted(() => {
-      accountService.restoreAccount()
+      // accountService.restoreAccount()
     })
 
     return {

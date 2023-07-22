@@ -8,21 +8,12 @@ export class Account {
     this.bio = data.bio
     this.coverImg = data.coverImg
     this.github = data.github
+    this.githubShort = data.github.replace('https://github.com/', '')
     this.linkedin = data.linkedin
+    this.linkedinShort = data.linkedin.replace('https://www.linkedin.com/', '')
     this.resume = data.resume
+    this.resumeShort = 'Resume'
     this.class = data.class
     this.graduated = data.graduated
-  }
-
-  get githubShort() {
-    return this.github.replace('https://github.com/', '')
-  }
-
-  get linkedinShort() {
-    return this.linkedin.replace('https://www.linkedin.com/', '')
-  }
-
-  get resumeShort() {
-    return 'Resume'
   }
 }
