@@ -13,4 +13,16 @@ export class Account {
     this.class = data.class
     this.graduated = data.graduated
   }
+
+  get githubShort() {
+    return this.github.replace('https://github.com/', '')
+  }
+
+  get linkedinShort() {
+    return this.linkedin.replace('https://www.linkedin.com/', '')
+  }
+
+  get resumeShort() {
+    return 'Resume'
+  }
 }
