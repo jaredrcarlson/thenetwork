@@ -18,7 +18,7 @@ class PostsService {
 
   async createPost() {
     const res = await api.post('api/posts', AppState.newPost)
-    AppState.posts.push(new Post(res.data))
+    AppState.posts.unshift(new Post(res.data))
   }
 
   async deletePost(postId) {
@@ -37,6 +37,10 @@ class PostsService {
   resetPostsPages() {
     AppState.postsCurrentPage = 1
     AppState.postsTotalPages = null
+  }
+
+  clearForm() {
+    AppState.newPost = {}
   }
 }
 

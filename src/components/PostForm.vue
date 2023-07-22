@@ -29,10 +29,12 @@ export default {
   setup(){
     return {
       account: computed(() => AppState.account),
-      post: ref(AppState.newPost),
+      post: computed(() => AppState.newPost),
+      // ref(AppState.newPost),
       createPost: async() => {
         try {
           await postsService.createPost()
+          postsService.clearForm()
           Pop.success()
         } catch (error) {
           Pop.error(error.message)
