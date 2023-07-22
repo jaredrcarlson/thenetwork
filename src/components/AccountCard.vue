@@ -8,7 +8,7 @@
           </div>
           <div v-if="account.id" class="mb-3">
             <h4 class="my-1 card-title">{{ account.name }}</h4>
-            <h6 class="ms-1 card-subtitle text-muted">{{ account.class }}class</h6>
+            <h6 class="ms-1 card-subtitle text-muted">{{ account.class }}</h6>
           </div>
 
           <div v-if="account.github" class="d-flex align-items-center">
