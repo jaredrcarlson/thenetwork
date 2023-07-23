@@ -19,17 +19,17 @@ import { AppState } from '../AppState.js';
 export default {
   setup() {
     
-    onMounted(() => {
-      console.log('HomePage > Mounted')
-    })
+    // onMounted(() => {
+    //   console.log('HomePage > Mounted')
+    // })
 
-    onUnmounted(() => {
-      console.log('HomePage > Unmounted')
-    })
+    // onUnmounted(() => {
+    //   console.log('HomePage > Unmounted')
+    // })
 
-    onUpdated(() => {
-      console.log('HomePage > Updated')
-    })
+    // onUpdated(() => {
+    //   console.log('HomePage > Updated')
+    // })
 
     return {
       user: computed(() => AppState.user),

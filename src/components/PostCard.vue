@@ -72,6 +72,10 @@ export default {
         }
       },
       deletePost: async() => {
+        const confirmed = await Pop.confirm()
+        if(!confirmed) {
+          return
+        }
         try {
           await postsService.deletePost(props.post.id)
           Pop.success()

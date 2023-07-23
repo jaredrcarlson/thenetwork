@@ -84,17 +84,16 @@ export default {
 
     onMounted(() => {
       getAds(20)
-      console.log('App > Mounted')
-
+      // console.log('App > Mounted')
     })
 
-    onUnmounted(() => {
-      console.log('App > Unmounted')
-    })
+    // onUnmounted(() => {
+    //   console.log('App > Unmounted')
+    // })
 
-    onUpdated(() => {
-      console.log('App > Updated')
-    })
+    // onUpdated(() => {
+    //   console.log('App > Updated')
+    // })
 
     return {
       // AppState: computed(() => AppState),

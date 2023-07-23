@@ -22,17 +22,17 @@ import SearchPostCardList from '../components/SearchPostCardList.vue';
 
 export default {
   setup(){
-    onMounted(() => {
-      console.log('SearchPage > Mounted')
-    })
+    // onMounted(() => {
+    //   console.log('SearchPage > Mounted')
+    // })
 
-    onUnmounted(() => {
-      console.log('SearchPage > Unmounted')
-    })
+    // onUnmounted(() => {
+    //   console.log('SearchPage > Unmounted')
+    // })
     
-    onUpdated(() => {
-      console.log('SearchPage > Updated')
-    })
+    // onUpdated(() => {
+    //   console.log('SearchPage > Updated')
+    // })
     
     return {
       people: computed(() => AppState.profiles),

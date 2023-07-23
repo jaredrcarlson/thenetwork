@@ -45,10 +45,6 @@
           <div class="card-text px-3 mb-3 mx-2">
             <em class="">{{ profile.bio }}</em>
           </div>
-          
-          <div v-if="profile.id == account.id" class="d-flex justify-content-end">
-            <button class="btn btn-info">Edit</button>
-          </div>
 
         </div>
       </div>
