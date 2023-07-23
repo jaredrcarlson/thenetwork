@@ -1,10 +1,5 @@
 <template>
-  <span class="navbar-text">
-    <button class="btn btn-sm btn-primary my-2 my-lg-0" @click="login"
-      v-if="!user.isAuthenticated">
-      LOGIN
-    </button>
-    <div v-else>
+    <div v-if="user.isAuthenticated">
       <div class="dropdown my-2 my-lg-0">
         <div type="button" class="border-0 no-select" data-bs-toggle="dropdown" aria-expanded="false">
           <div v-if="account.picture || user.picture">
@@ -26,7 +21,6 @@
         </div>
       </div>
     </div>
-  </span>
 </template>
 
 <script>
@@ -38,9 +32,7 @@ export default {
     return {
       user: computed(() => AppState.user),
       account: computed(() => AppState.account),
-      async login() {
-        AuthService.loginWithPopup()
-      },
+      
       async logout() {
         AuthService.logout({ returnTo: window.location.origin })
       }

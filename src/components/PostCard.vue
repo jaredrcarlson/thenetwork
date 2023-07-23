@@ -27,9 +27,6 @@
 
     <div class="card-footer">
       <div class="d-flex align-items-center justify-content-between">
-        <div>
-          <button v-show="post.creatorId == account.id" @click="deletePost" class="btn btn-danger">DELETE</button>
-        </div>
         <div class="d-flex align-items-center">
           <div v-if="account.id" @click="toggleLike" class="fs-3">
             <i v-if="post.likeIds.includes(account.id)" class="mdi mdi-heart pointer"></i>
@@ -39,8 +36,11 @@
             <small v-if="post.numLikes == 1" class="ms-1 text-muted">{{ post.numLikes }} Like</small>
             <small v-else class="ms-1 text-muted">{{ post.numLikes }} Likes</small>
           </div>
+        </div>  
+        
+        <div v-if="post.creatorId == account.id" class="btn-custom text-danger" @click="deletePost">
+          <i class="mdi mdi-delete-circle-outline fs-2"></i>
         </div>
-
       </div>
     </div>
       
@@ -54,7 +54,6 @@ import { Post } from '../models/Post.js';
 import { AppState } from '../AppState.js';
 import { postsService } from '../services/PostsService.js';
 import Pop from '../utils/Pop.js';
-import { logger } from '../utils/Logger.js';
 
 export default {
   props: {

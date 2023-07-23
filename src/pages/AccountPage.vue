@@ -16,7 +16,7 @@
 
         <div class="my-0 col-6 d-flex align-items-center">
           <i class="mdi mdi-school fs-4"></i>
-          <div class="ms-3 pe-2 form-text">Graduated</div>
+          <div class="ms-3 pe-3 form-text">Graduated</div>
           <input v-model="temp.graduated" type="checkbox" class="form-check-input">
         </div>
 
@@ -75,12 +75,14 @@
         <textarea v-model="temp.bio" class="form-control"></textarea>
       </div>
     </div>
-
-      
   </div>
   <div class="card-footer d-flex justify-content-around">
-    <button @click="resetForm" class="btn btn-primary">CANCEL</button>
-    <button @click="updateAccount" class="btn btn-primary">SAVE</button>
+    <div @click="resetForm" class="btn-custom">
+      <i class="mdi mdi-close-circle-outline fs-2"></i>
+    </div>
+    <div @click="updateAccount" class="btn-custom">
+      <i class="mdi mdi-check-circle-outline fs-2"></i>
+    </div>
   </div>
 </div>
 </template>
@@ -89,15 +91,10 @@
 import { computed, onMounted} from 'vue';
 import { accountService } from '../services/AccountService.js';
 import Pop from '../utils/Pop.js';
-import { logger } from '../utils/Logger.js';
 import { AppState } from '../AppState';
 export default {
   setup() {
     
-    onMounted(() => {
-      // accountService.restoreAccount()
-    })
-
     return {
       temp: computed(() => AppState.account),
       resetForm: () => {
@@ -120,6 +117,8 @@ export default {
 .profile-img {
   height: 10vh;
   width: 10vh;
+  border-style: solid;
+  border-width: 2px;
   border-radius: 50%;
   object-fit: cover;
   object-position: center;

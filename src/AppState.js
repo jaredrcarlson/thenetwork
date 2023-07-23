@@ -18,7 +18,7 @@ export const AppState = reactive({
   postsTotalPages: null,
 
   /** @type {import('./models/Post.js').Post} */
-  newPost: {},
+  newPost: { body: '' },
 
   /** @type {import('./models/Profile.js').Profile[]} */
   profiles: [],

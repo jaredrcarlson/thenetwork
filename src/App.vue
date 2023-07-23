@@ -17,6 +17,11 @@
           </div>
       </div>
       <div class="col-3">
+        <div align="center" v-if="!user.isAuthenticated">
+          <div class="my-2" @click="login" >
+            <img class="img-fluid login-btn" src="./assets/img/login_button.png">
+          </div>
+        </div>
       </div>
     </div>
   </header>
@@ -36,7 +41,9 @@
         <router-view :key="$route.fullPath"/>
       </div>
       <div class="col-3">
-        <AccountCard />
+        <div v-if="user.isAuthenticated">
+          <AccountCard />
+        </div>
         <div v-for="ad in adsStartHalf" :key="ad">
           <a :href="ad.linkURL" target="blank">
             <div class="card elevation-3 mb-3">
@@ -58,6 +65,7 @@ import Pop from './utils/Pop.js';
 import AccountCard from './components/AccountCard.vue';
 import { router } from './router.js';
 import { searchService } from './services/SearchService.js';
+import { AuthService } from './services/AuthService.js';
 
 export default {
   setup() {
@@ -97,6 +105,10 @@ export default {
 
     return {
       // AppState: computed(() => AppState),
+      user: computed(() => AppState.user),
+      async login() {
+        AuthService.loginWithPopup()
+      },
       ads: AppState.ads,
       adsReversed: computed(() => AppState.ads.slice().reverse()),
       adsStartHalf: computed(() => AppState.ads.slice(0, AppState.ads.length/2)),
@@ -120,14 +132,25 @@ export default {
 }
 
 main {
-  background-color: #fbfaf5;
+  // background-color: #fbfaf5;
+  background-color: rgba(255, 255, 0, 0.137);
 }
 
 .topbar {
-  background-color: #d6d4c8;
+  background-color: #5c57571a;
+  // background-color: #ffe88134;
+
 }
 
 .btn-custom:hover {
+  cursor: pointer;
+}
+
+.login-btn {
+  height: 4vh;
+}
+
+.login-btn:hover {
   cursor: pointer;
 }
 </style>
