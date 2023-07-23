@@ -1,6 +1,5 @@
 import { AppState } from "../AppState.js";
 import { Post } from "../models/Post.js";
-import { logger } from "../utils/Logger.js";
 import { api } from "./AxiosService.js";
 
 class PostsService {
@@ -14,6 +13,13 @@ class PostsService {
     AppState.postsCurrentPage = res.data.page
     AppState.postsTotalPages = res.data.totalPages
     AppState.posts = res.data.posts.map(data => new Post(data))
+  }
+
+  async getSearchPosts(pageNumber, queryString) {
+    const res = await api.get(`api/posts?query=${queryString}&page=${pageNumber}`)
+    AppState.searchPostsCurrentPage = res.data.page
+    AppState.searchPostsTotalPages = res.data.totalPages
+    AppState.searchPosts = res.data.posts.map(data => new Post(data))
   }
 
   async createPost() {
@@ -36,9 +42,14 @@ class PostsService {
 
   async search(queryString) {
     const res = await api.get(`/api/posts?query=${queryString}`)
-    AppState.posts = res.data.posts.map(data => new Post(data))
-    AppState.postsCurrentPage = AppState.posts.length ? res.data.page : 0
-    AppState.postsTotalPages = AppState.posts.length ? res.data.totalPages : 0
+    AppState.searchPosts = res.data.posts.map(data => new Post(data))
+    AppState.searchPostsCurrentPage = AppState.searchPosts.length ? res.data.page : 0
+    AppState.searchPostsTotalPages = AppState.searchPosts.length ? res.data.totalPages : 0
+  }
+
+  clearPosts() {
+    AppState.posts = []
+    this.resetPostsPages()
   }
 
   resetPostsPages() {

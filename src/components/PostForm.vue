@@ -1,10 +1,7 @@
 <template>
   <div class="card elevation-3">
-    <div class="card-header">
-
-    </div>
     <div class="card-body">
-      <div class="row">
+      <div class="row justify-content-between">
         <div class="col-2 d-flex justify-content-center">
           <img class="creator-img" :src="account.picture" :alt="account.name" :title="account.name">
         </div>
@@ -58,8 +55,8 @@ export default {
 
 <style lang="scss" scoped>
 .creator-img {
-  height: 12vh;
-  width: 12vh;
+  height: 10vh;
+  width: 10vh;
   border-style: solid;
   border-width: 2px;
   border-radius: 50%;

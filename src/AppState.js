@@ -25,7 +25,12 @@ export const AppState = reactive({
   /** @type {import('./models/Profile.js').Profile | null} */
   activeProfile: null,
 
-  searchType: { key: 'Posts' },
-  searchString: { key: '' }
+  // searchTypes: ['People', 'Posts & People'],
+  // searchType: { key: 'Posts' },
+  searchString: { key: '' },
+  searchPosts: [],
+  searchPostsCurrentPage: 1,
+  searchPostsTotalPages: null
+
 
 })

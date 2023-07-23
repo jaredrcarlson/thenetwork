@@ -5,8 +5,7 @@
 
 
 <script>
-import { computed, onMounted } from 'vue';
-import { AppState } from '../AppState.js';
+import { onMounted } from 'vue';
 import { useRoute } from 'vue-router';
 import Pop from '../utils/Pop.js';
 import { profilesService } from '../services/ProfilesService.js';
@@ -28,9 +27,7 @@ export default {
       getProfile()
     })
 
-    return {
-      profile: computed(() => AppState.activeProfile)
-    }
+    return {}
   },
   components: { ProfileDetails, PostCardList }
 }

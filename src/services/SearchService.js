@@ -3,19 +3,14 @@ import { postsService } from "./PostsService.js"
 import { profilesService } from "./ProfilesService.js"
 
 class SearchService {
-  constructor() {
-    this.searchTypes = ['Posts & People', 'Posts', 'People']
-    AppState.searchType.key = this.searchTypes.shift()
-  }
+  // getSearchType() {
+  //   return AppState.searchType.key
+  // }
 
-  getSearchType() {
-    return AppState.searchType.key
-  }
-
-  nextSearchType() {
-    this.searchTypes.push(AppState.searchType.key)
-    AppState.searchType.key = this.searchTypes.shift()
-  }
+  // nextSearchType() {
+  //   AppState.searchTypes.push(AppState.searchType.key)
+  //   AppState.searchType.key = AppState.searchTypes.shift()
+  // }
 
   getSearchString() {
     return AppState.searchString.key
@@ -27,6 +22,24 @@ class SearchService {
 
   setSearchString(searchString) {
     AppState.searchString.key = searchString
+  }
+
+  async search(searchString) {
+    // profilesService.clearProfiles()
+    // postsService.clearPosts()
+    await this.searchPeople(searchString)
+    await this.searchPosts(searchString)
+
+    // const searchType = this.getSearchType()
+    // if (searchString != '' && searchType.includes('People')) {
+    //   profilesService.clearProfiles()
+    //   await this.searchPeople(searchString)
+    // }
+    // if (searchString != '' && searchType.includes('Posts')) {
+    //   postsService.clearPosts()
+    //   await this.searchPosts(searchString)
+    // }
+    // this.clearSearchString()
   }
 
   async searchPeople(searchString) {

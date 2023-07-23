@@ -19,7 +19,7 @@
       </div>
     </div>
     
-    <div class="card-body">
+    <div class="card-body bg-light">
       <p class="card-text">{{ post.body }}</p>
     </div>
 
@@ -96,7 +96,6 @@ export default {
   object-fit: cover;
   object-position: center;
 }
-
 .pointer {
   cursor: pointer;
 }

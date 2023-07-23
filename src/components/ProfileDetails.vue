@@ -13,17 +13,22 @@
               </div>
               <div>
                 <h4 class="my-1 card-title">{{ profile.name }}</h4>
-                <h6 class="ms-1 card-subtitle text-muted">{{ profile.class }}</h6>
+                <h6 class="ms-1 card-subtitle text-muted"><i v-if="profile.graduated" class="mdi mdi-school me-2"></i>{{ profile.class }}</h6>
               </div>
             </div>
 
             <div class="d-flex">
-                <div v-if="profile.github">
+                <div v-if="profile.email" class="me-3">
+                  <a :href="`mailto:${profile.email}`" target="_blank">
+                    <i class="mdi mdi-email fs-1"></i>
+                  </a>
+                </div>
+                <div v-if="profile.github" class="me-3">
                   <a :href="profile.github" target="_blank">
                     <i class="mdi mdi-github fs-1"></i>
                   </a>
                 </div>
-                <div v-if="profile.linkedin" class="mx-3">
+                <div v-if="profile.linkedin" class="me-3">
                   <a :href="profile.linkedin" target="_blank">
                     <i class="mdi mdi-linkedin fs-1"></i>
                   </a>
@@ -37,7 +42,7 @@
 
           </div>
           
-          <div class="card-text mb-3 mx-2">
+          <div class="card-text px-3 mb-3 mx-2">
             <em class="">{{ profile.bio }}</em>
           </div>
           

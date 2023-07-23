@@ -1,34 +1,39 @@
 <template>
-  <!-- <div class="home flex-grow-1 d-flex flex-column align-items-center justify-content-center"> -->
-    <!-- <div class="home-card p-5 bg-white rounded elevation-3">
-      <img src="https://bcw.blob.core.windows.net/public/img/8600856373152463" alt="CodeWorks Logo"
-        class="rounded-circle">
-      <h1 class="my-5 bg-dark text-white p-3 rounded text-center">
-        Vue 3 Starter
-      </h1>
-    </div> -->
-    <div v-if="account.id" class="mb-3">
+    <div v-if="user.isAuthenticated" class="mb-3">
       <PostForm />
     </div>
-
+    <div v-else class="card elevation-3 mb-3">
+      <a :href="randomAd?.linkURL" target="blank">
+        <img class="card-img" :src="randomAd?.banner" :alt="randomAd?.title" :title="randomAd?.title">
+      </a>
+    </div>
     <PostCardList />
-    
-  <!-- </div> -->
 </template>
 
 <script>
 import PostCardList from '../components/PostCardList.vue';
-import { computed, onMounted } from 'vue';
+import { computed, onMounted, onUnmounted, onUpdated } from 'vue';
 import PostForm from '../components/PostForm.vue';
 import { AppState } from '../AppState.js';
 
 export default {
   setup() {
-    onMounted(async() => {
+    
+    onMounted(() => {
+      console.log('HomePage > Mounted')
+    })
+
+    onUnmounted(() => {
+      console.log('HomePage > Unmounted')
+    })
+
+    onUpdated(() => {
+      console.log('HomePage > Updated')
     })
 
     return {
-      account: computed(() => AppState.account)
+      user: computed(() => AppState.user),
+      randomAd: computed(() => AppState.ads[Math.floor(Math.random()*AppState.ads.length)])
     }
   },
   components: { PostForm, PostCardList }

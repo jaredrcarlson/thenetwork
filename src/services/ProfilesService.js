@@ -12,6 +12,10 @@ class ProfilesService {
     const res = await api.get(`/api/profiles?query=${queryString}`)
     AppState.profiles = res.data.map(data => new Profile(data))
   }
+
+  clearProfiles() {
+    AppState.profiles = []
+  }
 }
 
 export const profilesService = new ProfilesService()

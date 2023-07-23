@@ -1,56 +1,44 @@
 <template>
-  <div v-if="searchType.key.includes('People')">
+  <div class="mb-3">
     <h3>People</h3>
-    <ProfileCardList />
+    <div v-if="people.length">
+      <ProfileCardList />
+    </div>
+    <div v-else>
+      <div class="ms-4 fs-5 text-muted">0 Results</div>
+    </div>
   </div>
-  <div v-if="searchType.key.includes('Posts')">
+  <div>
     <h3>Posts</h3>
-    <PostCardList />
+      <SearchPostCardList />
   </div>
-
-
 </template>
 
-
 <script>
-import { computed, onMounted, ref } from 'vue';
+import { computed, onMounted, onUnmounted, onUpdated } from 'vue';
 import { AppState } from '../AppState.js';
-import Pop from '../utils/Pop.js';
 import ProfileCardList from '../components/ProfileCardList.vue';
-import PostCardList from '../components/PostCardList.vue';
-import { searchService } from '../services/SearchService.js';
-import { useRoute } from 'vue-router';
+import SearchPostCardList from '../components/SearchPostCardList.vue';
 
 export default {
   setup(){
-    let route = useRoute()
-
-    async function search() {
-      const searchType = searchService.getSearchType()
-      const searchString = route.params.queryString
-      searchService.setSearchString(searchString)
-      try {
-        if(searchString && searchType.includes('People')) {
-          await searchService.searchPeople(searchString)
-        }
-        if(searchString && searchType.includes('Posts')) {
-          await searchService.searchPosts(searchString)
-        }
-      } catch (error) {
-        Pop.error(error.message)
-      }
-    }
-
     onMounted(() => {
-      search()  
+      console.log('SearchPage > Mounted')
+    })
+
+    onUnmounted(() => {
+      console.log('SearchPage > Unmounted')
+    })
+    
+    onUpdated(() => {
+      console.log('SearchPage > Updated')
     })
     
     return {
-      searchType: ref(AppState.searchType),
-      people: computed(() => AppState.profiles)
+      people: computed(() => AppState.profiles),
     }
   },
-  components: { ProfileCardList, PostCardList }
+  components: { ProfileCardList, SearchPostCardList }
 
 }
 </script>
