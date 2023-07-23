@@ -15,12 +15,12 @@
           <div class="list-group">
             <router-link :to="{ name: 'Account' }">
               <div class="list-group-item dropdown-item list-group-item-action">
-                Edit Account
+                Edit Profile
               </div>
             </router-link>
             <div class="list-group-item dropdown-item list-group-item-action text-danger selectable" @click="logout">
               <i class="mdi mdi-logout"></i>
-              LOGOUT
+              Logout
             </div>
           </div>
         </div>
@@ -53,6 +53,8 @@ export default {
 .account-img {
   height: 16vh;
   width: 16vh;
+  border-style: solid;
+  border-width: 2px;
   border-radius: 50%;
   object-fit: cover;
   object-position: center;

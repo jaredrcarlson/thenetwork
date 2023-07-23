@@ -20,7 +20,12 @@ export const AppState = reactive({
   /** @type {import('./models/Post.js').Post} */
   newPost: {},
 
+  /** @type {import('./models/Profile.js').Profile[]} */
+  profiles: [],
   /** @type {import('./models/Profile.js').Profile | null} */
   activeProfile: null,
+
+  searchType: { key: 'Posts' },
+  searchString: { key: '' }
 
 })

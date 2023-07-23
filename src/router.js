@@ -17,6 +17,15 @@ const routes = [
     component: loadPage('ProfilePage')
   },
   {
+    path: '/search/:queryString',
+    name: 'Search',
+    component: loadPage('SearchPage')
+  },
+  {
+    path: '/search',
+    redirect: '/'
+  },
+  {
     path: '/account',
     name: 'Account',
     component: loadPage('AccountPage'),

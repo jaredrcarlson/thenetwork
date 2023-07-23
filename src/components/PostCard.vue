@@ -89,6 +89,9 @@ export default {
 .creator-img {
   height: 10vh;
   width: 10vh;
+  border-style: solid;
+  border-width: 2px;
+  border-color:black;
   border-radius: 50%;
   object-fit: cover;
   object-position: center;

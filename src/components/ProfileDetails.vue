@@ -3,7 +3,7 @@
     <div class="card elevation-3 mb-4">
       <img :src="profile.coverImg" class="card-img-top">
       <div class="card-body">
-        <div>
+        <div class="background-image">
 
           <div class="mb-3 d-flex align-items-center justify-content-between">
 
@@ -72,6 +72,8 @@ export default {
 .profile-img {
   height: 10vh;
   width: 10vh;
+  border-style: solid;
+  border-width: 2px;
   border-radius: 50%;
   object-fit: cover;
   object-position: center;
@@ -81,17 +83,14 @@ a:link {
   color: #000000;
 }
 
-/* visited link */
 a:visited {
   color: #000000;
 }
 
-/* mouse over link */
 a:hover {
   color: #000000;
 }
 
-/* selected link */
 a:active {
   color: #000000;
 }

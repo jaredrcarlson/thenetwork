@@ -34,6 +34,13 @@ class PostsService {
     AppState.posts.splice(postIndex, 1, updatedPost)
   }
 
+  async search(queryString) {
+    const res = await api.get(`/api/posts?query=${queryString}`)
+    AppState.posts = res.data.posts.map(data => new Post(data))
+    AppState.postsCurrentPage = AppState.posts.length ? res.data.page : 0
+    AppState.postsTotalPages = AppState.posts.length ? res.data.totalPages : 0
+  }
+
   resetPostsPages() {
     AppState.postsCurrentPage = 1
     AppState.postsTotalPages = null

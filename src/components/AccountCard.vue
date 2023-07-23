@@ -14,12 +14,16 @@
               <i class="mdi mdi-school fs-1"></i>
             </div>
           </div>
+          <div v-if="account.id" class="d-flex align-items-center">
+            <i class="me-2 mdi mdi-email fs-4"></i>
+            <small>{{ account.email }}</small>
+          </div>
           <div v-if="account.github" class="d-flex align-items-center">
             <i class="me-2 mdi mdi-github fs-4"></i>
             <a :href="account.github" target="blank">
               <small>{{ account.githubShort }}</small>
             </a>
-            </div>
+          </div>
           <div v-if="account.linkedin" class="d-flex align-items-center">
             <i class="me-2 mdi mdi-linkedin fs-4"></i>
             <a :href="account.linkedin" target="blank">

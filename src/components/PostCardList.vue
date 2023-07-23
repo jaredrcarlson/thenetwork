@@ -13,7 +13,7 @@
     <div class="col-1"></div>
   </div>
   <div class="row">
-    <div class="col-12 my-3" v-for="post in posts" :key="post.id">
+    <div class="col-12 mb-3" v-for="post in posts" :key="post.id">
       <PostCard :post="post" />
     </div>
   </div>
