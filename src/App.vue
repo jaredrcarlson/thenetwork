@@ -22,6 +22,18 @@
             <img class="img-fluid login-btn" src="./assets/img/login_button.png">
           </div>
         </div>
+        <!-- <div v-else> 
+          <div class="list-group-item dropdown-item list-group-item-action text-danger selectable" @click="logout">
+            <i class="mdi mdi-logout"></i>
+            Logout
+          </div>
+        </div> -->
+        <div v-else > 
+          <div class="my-2 d-flex btn-custom align-items-center justify-content-center" @click="logout">
+            <i class="mdi mdi-logout fs-4"></i>
+            <div class="ms-2">Logout</div>
+          </div>
+        </div>
       </div>
     </div>
   </header>
@@ -89,7 +101,7 @@ export default {
         Pop.error(error.message)
       }
     }
-
+    
     onMounted(() => {
       getAds(20)
       // console.log('App > Mounted')
@@ -108,6 +120,9 @@ export default {
       user: computed(() => AppState.user),
       async login() {
         AuthService.loginWithPopup()
+      },
+      async logout() {
+        AuthService.logout({ returnTo: window.location.origin })
       },
       ads: AppState.ads,
       adsReversed: computed(() => AppState.ads.slice().reverse()),
