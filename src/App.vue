@@ -64,9 +64,9 @@
 </template>
 
 <script>
-import { computed, onMounted, onUnmounted, onUpdated, ref } from 'vue';
+import { computed, onMounted } from 'vue';
 import { AppState } from './AppState';
-import { adsService } from './services/AdsService.js';
+import { adsService } from './services/NaService.js';
 import Pop from './utils/Pop.js';
 import AccountCard from './components/AccountCard.vue';
 import { router } from './router.js';
